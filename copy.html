@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page A-frame</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kylebakerio/ada-water/ada-water.js"></script>
+</head>
+
+<body>
+    <img id="sky" src="./assets/sky.png" alt="">
+    <img id="floor" src="./assets/grass_base.png" alt="">
+    <img id="floor-normal" src="./assets/grass_normal.png" alt="">
+
+
+    <!-- Enregistrement arbre -->
+    <a-asset-item id="arbre-gros" src="./assets/trees/big-tree.glb"></a-asset-item>
+    <a-asset-item id="arbre-liane" src="./assets/trees/tree-avec-liane.glb"></a-asset-item>
+    <a-asset-item id="arbre-tombe" src="./assets/trees/arbre-tombe.glb"></a-asset-item>
+    <a-asset-item id="arbre-beau" src="./assets/trees/tree-vert-beau.glb"></a-asset-item>
+    <a-asset-item id="arbre-penche" src="./assets/trees/tree-vert-penche-arr.glb"></a-asset-item>
+    <a-asset-item id="arbre-penche2" src="./assets/trees/tree-vert-penche-arr2.glb"></a-asset-item>
+    <a-asset-item id="arbre-souche" src="./assets/trees/tree-souche.glb"></a-asset-item>
+
+    <!-- Enregistrement Vegétations -->
+    <a-asset-item id="fleur-vert" src="./assets/flowers-green.glb"></a-asset-item>
+    <a-asset-item id="fleur-violette" src="./assets/flowers-purple.glb"></a-asset-item>
+    <a-asset-item id="fleur-rose" src="./assets/tulip-rose.glb"></a-asset-item>
+    <a-asset-item id="nenuphare-fleur" src="./assets/nenuphare-fleuri.glb"></a-asset-item>
+    <a-asset-item id="nenuphare-pas-fleur" src="./assets/nenuphare.glb"></a-asset-item>
+
+    <!-- Enregistrement Faune -->
+    <a-asset-item id="spider" src="./assets/spider.glb"></a-asset-item>
+    <a-asset-item id="papillon-orange" src="./assets/orange-butterfly.glb"></a-asset-item>
+    <a-asset-item id="papillon-bleu" src="./assets/blue-butterfly.glb"></a-asset-item>
+    <a-asset-item id="gambas-debout" src="./assets/gambas-debout.glb"></a-asset-item>
+    <a-asset-item id="gambas-debout2" src="./assets/gambas_debout2.glb"></a-asset-item>
+    <a-asset-item id="gambas-boring" src="./assets/gambas-boring.glb"></a-asset-item>
+
+    <!-- Enregistrement Faune -->
+    <a-asset-item id="mask" src="./assets/mask.glb"></a-asset-item>
+    <a-asset-item id="epee" src="./assets/mononoke-sword.glb"></a-asset-item>
+
+
+    <!-- fog="type: linear; color: #023e8a; near: 1; far: 7" background="color: #ECECEC" -->
+    <a-scene>
+        <a-sky material="src: #sky" ></a-sky>
+
+
+        <a-plane scale="100 100 100" rotation="270 45 0" position="0 0 0" color="yellow"></a-plane> 
+
+        <!-- Lake -->
+        <!-- <a-water scale="10 10 5" position="59 0 40" width="10" height="100" voronoi-points="0" opacity=".7"></a-water>  -->
+    
+        <!-- Arbre -->
+        <a-entity gltf-model="#arbre-gros" rotation="0 0 0" position="-20 19.6 10" scale="15 15 15"></a-entity>
+        <a-entity gltf-model="#arbre-tombe" rotation="0 0 0" position="-5 2.25 10" scale="5 5 5"></a-entity>
+        <a-entity gltf-model="#arbre-beau" rotation="0 0 0" position="15 0.95 10" scale="4 4 4"></a-entity>
+        <a-entity gltf-model="#arbre-penche" rotation="0 0 0" position="30 0.95 10" scale="4 4 4"></a-entity>
+        <a-entity gltf-model="#arbre-penche2" rotation="0 0 0" position="45 1 10" scale="4 4 4"></a-entity>
+        <a-entity gltf-model="#arbre-liane" rotation="0 0 0" position="-40 7.880 10" scale="15 15 15"></a-entity>
+        <a-entity gltf-model="#arbre-souche" rotation="0 0 0" position="-40 2.380 -10" scale="5 5 5"></a-entity>
+        
+        <!-- Végétations -->
+        <a-entity gltf-model="#fleur-vert" rotation="0 0 0" position="0 0 -2" scale="2 2 2"></a-entity>
+        <a-entity gltf-model="#fleur-violette" rotation="0 0 0" position="-5 0 -2" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#fleur-rose" rotation="0 0 0" position="5 0.6 -2" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#nenuphare-fleur" rotation="0 0 0" position="3 -0.1 -2" scale="0.4 0.4 0.4"></a-entity>
+        <a-entity gltf-model="#nenuphare-pas-fleur" rotation="0 0 0" position="-3 0 -2" scale="0.15 0.15 0.15"></a-entity>
+
+        <!-- Faune -->
+        <a-entity gltf-model="#spider" rotation="0 180 0" position="-3 0 2" scale="0.3 0.3 0.3"></a-entity>
+        <a-entity gltf-model="#papillon-orange" rotation="0 180 0" position="-0 1 2" scale="0.5 0.5 0.5"></a-entity>
+        <a-entity gltf-model="#papillon-bleu" rotation="0 90 0" position="-9 1 2" scale=".5 .5 .5"></a-entity>
+        <a-entity gltf-model="#gambas-debout" rotation="0 180 0" position="3 0 2" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#gambas-debout2" rotation="0 180 0" position="-6 0 2" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#gambas-boring" rotation="0 180 0" position="6 0 2" scale="1 1 1"></a-entity>
+
+        <!-- Item -->
+        <a-entity gltf-model="#mask" rotation="0 180 0" position="-12 0 2" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#epee" rotation="0 180 0" position="9 0.5 2" scale=".001 .001 .001"></a-entity>
+
+
+        <!-- Lights -->
+        <!-- <a-entity light="type: directional; color: #14213d; intensity: 0.5" position="0 10 -50"
+            target="#vending"></a-entity>
+        <a-entity light="type: ambient; color: yellow" position="0 10 0"></a-entity> -->
+
+        <!-- CAMERA & manettes -->
+        <a-entity movement-controls="speed:0.6; fly:true;" id="rig" position="0 1.5 -15" rotation="0 180 0">
+            <!-- Z80 pour la cam pour le début -->
+            <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0" rotation="0 0 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+            <a-entity laser-controls="hand: left"
+                raycaster="objects: .clickable; far: 20; showLine: true; raycaster: red;"
+                position="-0.5 1.5 -0.5"></a-entity>
+            <a-entity laser-controls="hand: right"
+                raycaster="objects: .clickable; far: 20; showLine: true; raycaster: red;"
+                position="0.5 1.5 -0.5"></a-entity>
+        </a-entity>
+
+        <!-- Sound -->
+         <a-sound src="./sound/ost-violette-evergarden.mp3" loop="true" autoplay="true"></a-sound>
+    </a-scene>
+</body>
+
+</html>
