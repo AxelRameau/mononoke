@@ -38,6 +38,9 @@
     <a-asset-item id="herbe" src="./assets/grass.glb"></a-asset-item>
     <a-asset-item id="fleur-blanche" src="./assets/flowers-blanche.glb"></a-asset-item>
     <a-asset-item id="ile-fleuri" src="./assets/ilefleuri.glb"></a-asset-item>
+    <a-asset-item id="pierre-ghibli" src="./assets/ghibli-rock.glb"></a-asset-item>
+    <a-asset-item id="ghibli-statue" src="./assets/ghibli-statue.glb"></a-asset-item>
+    <a-asset-item id="arbre-ghi" src="./assets/kodama_diorama.glb"></a-asset-item>
 
     <!-- Enregistrement Faune -->
     <a-asset-item id="spider" src="./assets/spider.glb"></a-asset-item>
@@ -52,7 +55,7 @@
     <a-asset-item id="epee" src="./assets/mononoke-sword.glb"></a-asset-item>
 
 
-    <!--fog="type: linear; color: #001d3d; near: 35; far: 60" exponential -->
+    <!--fog="type: linear; color: #001d3d; near: 35; far: 60"  -->
     <a-scene fog="type: linear; color: #001d3d; near: 35; far: 60">
         <a-sky color="#adb5bd"></a-sky>
         <!-- <a-entity scale="3 3 3" environment="preset: forest"></a-entity> -->
@@ -96,7 +99,10 @@
         <a-entity gltf-model="#caillou3" material="color:#000;" rotation="0 83 0" position="23.574 3.5 -31.416"
             scale="6 6 6"></a-entity>
 
-
+        <!-- Faune -->
+        <!-- <a-entity gltf-model="#spider" rotation="0 180 0" position="-3 1 2" scale="0.3 0.3 0.3"></a-entity>
+        <a-entity gltf-model="#papillon-orange" rotation="0 180 0" position="-0 2 2" scale="0.5 0.5 0.5"></a-entity>
+        <a-entity gltf-model="#papillon-bleu" rotation="0 90 0" position="-9 2 2" scale=".5 .5 .5"></a-entity> -->
 
         <!-- Végétations -->
         <a-entity gltf-model="#ile" rotation="0 0 0" position="0 .8 0" scale=".2 .2 .2"></a-entity>
@@ -123,6 +129,10 @@
             scale="0.1 0.1 0.1"></a-entity>
         <a-entity gltf-model="#nenuphare-pas-fleur" rotation="0 0 0" position="4.660 0.610 -6.812"
             scale="0.12 0.12 0.12"></a-entity>
+        <a-entity gltf-model="#ghibli-statue" rotation="0 -140.000 0" position="36.633 2.2 34.253"
+            scale=".3 .3 .3"></a-entity>
+        <a-entity gltf-model="#arbre-ghi" rotation="0 -70 0" position="9.568 2.820 15.360"
+            scale="1 1 1"></a-entity>
         <a-entity gltf-model="#herbe" rotation="0 0.8 0" position="0.613 0.945 -0.728" scale="5 5 5"></a-entity>
         <a-entity gltf-model="#herbe" rotation="0 10 0" position="0.621 0.945 -12.508" scale="5.000 3 4"></a-entity>
 
