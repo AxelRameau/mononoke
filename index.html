@@ -174,9 +174,9 @@
         <!-- CAMERA & manettes -->
         <a-entity movement-controls="speed:0.5;" id="rig" position="0 1.8 0" rotation="0 320 0">
             <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0" rotation="0 0 0">
-                <!--  <a-text id="score" value="Score: 0" position="2.7 1.5 -2" color="#FFF" scale=".7 .7 .7"></a-text> -->
+                <!-- Sound -->
+                <a-sound src="./sound/ghiblisound.mp3" volume="3" loop="true" autoplay="true"></a-sound>
 
-                <!-- <a-box scale="1 .1 1" color="#000" opacity=".5" position="0 2 0" rotation="0 0 0"></a-box> -->
                 <a-text id="gambas" value="Trouve les Kodamas : 0/5" align="center" position="-0. -0.72 -2.2"
                     color="#FFF" scale=".4 .4 .4" geometry="primitive:plane; width:4; height:.5"
                     material="color:#000; opacity:.7;"></a-text>
@@ -196,8 +196,7 @@
                 position="0.5 1.5 -0.5"></a-entity>
         </a-entity>
 
-        <!-- Sound -->
-        <a-sound src="./sound/ghiblisound.mp3" volume="3" loop="true" autoplay="true"></a-sound>
+        
     </a-scene>
 </body>
 
