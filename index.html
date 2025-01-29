@@ -119,15 +119,17 @@
             scale="0.5 0.5 0.5"></a-entity>
         <a-entity gltf-model="#nenuphare-pas-fleur" rotation="0 0 0" position="-6.760 0.610 1.468"
             scale="0.1 0.1 0.1"></a-entity>
+        <a-entity gltf-model="#nenuphare-pas-fleur" rotation="0 0 0" position="3 0.650 10.803"
+            scale="0.1 0.1 0.1"></a-entity>
         <a-entity gltf-model="#nenuphare-pas-fleur" rotation="0 0 0" position="4.660 0.610 -6.812"
             scale="0.12 0.12 0.12"></a-entity>
         <a-entity gltf-model="#herbe" rotation="0 0.8 0" position="0.613 0.945 -0.728" scale="5 5 5"></a-entity>
         <a-entity gltf-model="#herbe" rotation="0 10 0" position="0.621 0.945 -12.508" scale="5.000 3 4"></a-entity>
 
         <!-- Item -->
-        <a-entity interactable gltf-model="#mask" rotation="15.000 -120.000 0" position="-25.935 15.432 -20.464"
+        <a-entity interactablemask gltf-model="#mask" rotation="15.000 -120.000 0" position="-25.935 15.432 -20.464"
             scale="1 1 1"></a-entity>
-        <a-entity interactable gltf-model="#epee" rotation="0 140.000 -120.000" position="20.459 1.942 -10.313"
+        <a-entity interactablesword gltf-model="#epee" rotation="0 140.000 -120.000" position="20.459 1.942 -10.313"
             scale=".001 .001 .001"></a-entity>
         <a-entity interactable gltf-model="#gambas-debout" rotation="0 200.000 0" position="17.978 0.570 10.960"
             scale="0.6 0.6 0.6"></a-entity>
@@ -164,9 +166,10 @@
         <!-- CAMERA & manettes -->
         <a-entity movement-controls="speed:0.5;" id="rig" position="0 1.3 0" rotation="0 180 0">
             <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0" rotation="0 0 0">
-
-
-                <a-text id="score" value="Score: 0" position="2.7 1.5 -2" color="#FFF" scale=".7 .7 .7"></a-text>
+                <!--  <a-text id="score" value="Score: 0" position="2.7 1.5 -2" color="#FFF" scale=".7 .7 .7"></a-text> -->
+                <a-text id="gambas" value="Trouve les Gambas : 0/5" position="2.245 1.5 -2" color="#FFF" scale=".4 .4 .4"></a-text>
+                <a-text id="sword" value="Trouve l'epee de la princesse : 0/1" position="1.88 1.4 -2" color="#FFF" scale=".4 .4 .4"></a-text>
+                <a-text id="masque" value="Trouve le masque de la princesse : 0/1" position="1.7 1.3 -2" color="#FFF" scale=".4 .4 .4"></a-text>
                 <a-cursor color="#caf0f8"></a-cursor>
             </a-camera>
             <a-entity laser-controls="hand: left"
@@ -185,14 +188,27 @@
 </html>
 <script>
     // Initialisation du compteur
-    let score = 0;
+    let gambas = 0;
+    let sword = 0;
+    let mask = 0;
+    
 
     // Fonction pour mettre à jour le texte du score
     function updateScore() {
-        const scoreText = document.querySelector("#score");
+        const scoreText = document.querySelector("#gambas");
+        const scoreSword = document.querySelector("#sword");
+        const scoreMask = document.querySelector("#masque");
         if (scoreText) {
-            scoreText.setAttribute("value", "Score: " + score);
-            console.log("Score mis à jour : " + score); // Affiche le score dans la console
+            scoreText.setAttribute("value", "Trouve les Gambas : " + gambas +"/5");
+            console.log("Score mis à jour : " + gambas); // Affiche le score dans la console
+        }
+        if (scoreSword) {
+            scoreSword.setAttribute("value", "Trouve l'epee de la princesse : " + sword +"/1");
+            console.log("Score mis à jour : " + sword); // Affiche le score dans la console
+        }
+        if (scoreMask) {
+            scoreMask.setAttribute("value", "Trouve le masque de la princesse : " + mask +"/1");
+            console.log("Score mis à jour : " + mask); // Affiche le score dans la console
         }
     }
 
@@ -200,24 +216,49 @@
     // Component to enable rotation on interaction
     AFRAME.registerComponent("interactable", {
         init: function () {
-            // Add event listener for the laser interaction
-            this.el.addEventListener("mouseenter", () => {
-                this.el.setAttribute("material", "color", "red"); // Visual feedback
-            });
-
-            this.el.addEventListener("mouseleave", () => {
-                this.el.setAttribute("material", "color", "blue"); // Reset color
-            });
-
             this.el.addEventListener("click", () => {
                 // Vérifiez si l'objet est déjà invisible (cliqué précédemment)
                 if (this.el.getAttribute("visible") === true) {
                     // Incrémenter le score si l'objet est encore visible
-                    score += 1;
-
+                    gambas += 1;
                     // Mettre à jour l'affichage du score
                     updateScore();
+                    // Faire disparaître l'objet après le clic
+                    this.el.setAttribute("visible", "false");
+                }
+                });
+            
+        },
+        
+    });
 
+    AFRAME.registerComponent("interactablesword", {
+        init: function () {
+            this.el.addEventListener("click", () => {
+                // Vérifiez si l'objet est déjà invisible (cliqué précédemment)
+                if (this.el.getAttribute("visible") === true) {
+                    // Incrémenter le score si l'objet est encore visible
+                    sword += 1;
+                    // Mettre à jour l'affichage du score
+                    updateScore();
+                    // Faire disparaître l'objet après le clic
+                    this.el.setAttribute("visible", "false");
+                }
+                });
+            
+        },
+        
+    });
+
+    AFRAME.registerComponent("interactablemask", {
+        init: function () {
+            this.el.addEventListener("click", () => {
+                // Vérifiez si l'objet est déjà invisible (cliqué précédemment)
+                if (this.el.getAttribute("visible") === true) {
+                    // Incrémenter le score si l'objet est encore visible
+                    mask += 1;
+                    // Mettre à jour l'affichage du score
+                    updateScore();
                     // Faire disparaître l'objet après le clic
                     this.el.setAttribute("visible", "false");
                 }
