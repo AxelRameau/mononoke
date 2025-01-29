@@ -56,11 +56,11 @@
 
 
     <!--fog="type: linear; color: #001d3d; near: 35; far: 60"  -->
-    <a-scene fog="type: linear; color: #001d3d; near: 35; far: 60">
+    <a-scene fog="type: linear; color: #001d3d; near: 20; far: 60">
         <a-sky color="#adb5bd"></a-sky>
         <!-- <a-entity scale="3 3 3" environment="preset: forest"></a-entity> -->
 
-        <a-plane scale="200 200 200" rotation="270 0 0" position="0 0 0" color="#3a86ff"></a-plane>
+        <a-plane scale="200 200 200" rotation="270 0 0" position="0 0 0" color="#2ec4b6"></a-plane>
 
         <!-- Lake -->
         <a-water scale="30 30 1" position="0 .55 0" width="10" height="80" voronoi-points="5" opacity=".7"></a-water>
@@ -156,9 +156,9 @@
 
 
         <!-- Lights -->
-        <a-entity light="type: ambient; color: #caf0f8; intensity: 1; " position="0 40 1.431"
+        <a-entity light="type: ambient; color: #caf0f8; intensity: .8; " position="0 40 1.431"
             rotation="-90.000 0 0"></a-entity>
-        <a-entity light="type: directional; color: #caf0f8; intensity: 1;" position="0 40 1.431"
+        <a-entity light="type: directional; color: #03256c; intensity: 1;" position="0 40 1.431"
             rotation="-90.000 0 0"></a-entity>
 
         <a-sphere rotation="-8.360 0 -50.000" position="33.330 28.387 -4.080"
